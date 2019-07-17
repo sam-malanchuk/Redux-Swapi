@@ -6,14 +6,9 @@ import { CharacterList } from "../components";
 import { getSwapi } from '../actions/index'
 
 class CharacterListView extends React.Component {
-  constructor() {
-    super();
-  }
-
   componentDidMount() {
     // call our action
     this.props.getSwapi()
-    console.log("it's working in component mount", this.props.characters)
   }
 
   render() {
@@ -31,11 +26,12 @@ class CharacterListView extends React.Component {
 
 // our mapStateToProps needs to have two properties inherited from state
 // the characters and the fetching boolean
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
+  const { characters, fetching, errorMessage } = state.charsReducer
   return {
-    characters: state.characters,
-    fetching: state.fetching,
-    errorMessage: state.errorMessage,
+    characters,
+    fetching,
+    errorMessage,
   }
 }
 

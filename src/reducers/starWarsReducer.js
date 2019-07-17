@@ -21,8 +21,7 @@ export const charsReducer = (state = initialState, action) => {
       }
     }
     case SUCCESS: {
-      const newData = action.payload
-      console.log('can you see the log from success case?', newData)
+      const newData = action.payload.results
       return {
         ...state,
         fetching: false,
