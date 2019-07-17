@@ -13,6 +13,7 @@ class CharacterListView extends React.Component {
   componentDidMount() {
     // call our action
     this.props.getSwapi()
+    console.log("it's working in component mount", this.props.characters)
   }
 
   render() {
